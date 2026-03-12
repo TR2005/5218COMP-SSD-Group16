@@ -1,10 +1,12 @@
 <?php
-    include "Masterpage.php";
-    MasterPage();
     //Connecting to DB
     $dbcreds= new mysqli ('localhost', 'root', '', 'ssdcoursework1');
+    include "Masterpage.php";
+    MasterPage();
+    //HTML Form
     $tSignupForm= <<<Signup
-        <form action="" method="POST" class="form-horizontal">
+        <title>Sign up</title>
+        <form method="POST" class="form-horizontal">
             <fieldset>
                 <legend>Create a New Account</legend>
                 <!--Username Input-->
@@ -66,12 +68,16 @@
         $password = $_POST['Password'];
         //hashing password
         $hashpass = password_hash($password, PASSWORD_DEFAULT);
+        //Preparing statement to be used with bind_param to stop SQL Injection
         if ($stmt = $dbcreds -> prepare("INSERT INTO users (Username, Firstname, Lastname, Email, Password) Values (?, ?, ?, ?, ?)")){
             $stmt -> bind_param("sssss", $username, $firstname, $lastname, $email, $hashpass);
             $stmt -> execute();
             if ($stmt -> insert_id == 0){
-                echo "Error";
+                echo "<script type ='text/javascript'>alert('Failed to sign up');/script>";
                 exit();
+            }else{
+                //sending to homepage
+                header("Location: Home.php");
             }
             $stmt -> close();
         }
