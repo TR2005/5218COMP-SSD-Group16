@@ -45,12 +45,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="ConfirmPassword">Confirm Password</label>
-                    <div class="col-md-4">
-                        <input id="ConfirmPassword" name="Confirm Password" type="password" placeholder="" class="form-control input-md" required="" minlength="1" maxlength="1000"> <span class="help-block">Please confrim Password</span>
-                    </div>
-                </div>
-                <div class="form-group">
                     <div class="col-md-4">
                         <button id="form-submission" name="form-submission" type="submit" class="btn btn-primary btn-lg">Sign Up</button>
                     </div>
@@ -82,4 +76,5 @@
             $stmt -> close();
         }
     }
+
 ?>
