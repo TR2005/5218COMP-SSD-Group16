@@ -1,6 +1,8 @@
 <?php
-
-$conn = mysqli_connect("localhost","root","","secure_app");
+include "Masterpage.php";
+MasterPage();
+//Connecting to DB
+$conn= new mysqli ('localhost', 'root', '', 'ssdcoursework1');
 ?>
 
 <!DOCTYPE html>
@@ -21,17 +23,18 @@ $conn = mysqli_connect("localhost","root","","secure_app");
 <?php
 
 if(isset($_GET['query'])){
-
     $search = $_GET['query'];
-    $sql = "SELECT * FROM posts WHERE title LIKE '%$search%'";
-    $result = mysqli_query($conn,$sql);
-
-    while($row = mysqli_fetch_assoc($result)){
-        echo "<h3>".$row['title']."</h3>";
-        echo "<p>".$row['content']."</p>";
-
-}
-
+    //Getting param to work with Like statement
+    $search = '%' . $search . '%';
+    if($stmt = $conn ->prepare("SELECT comment FROM comments WHERE comment LIKE ?")){
+        $stmt -> bind_param("s", $search);
+        $stmt -> execute();
+        $stmt -> bind_result($comment);
+        $stmt -> store_result();
+        while ($stmt -> fetch()){
+            echo "<h3>$comment</h3>";
+        }
+    }
 }
 
 ?>

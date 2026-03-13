@@ -7,24 +7,24 @@ $Content = <<<Content
         <thead>
             <tr>
                 <th>Title</th>
-                <th>Poster</th>
+                <th>Purpose</th>
                 <th>link</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Test1</td>
-                <td>User1</td>
+                <td>General</td>
+                <td>Discussion in regards to the work</td>
                 <td><a href="Comments.php?id=1" class="btn btn-sm" role="button">Link</td>
             </tr>
             <tr>
-                <td>Test2</td>
-                <td>User2</td>
+                <td>Plans</td>
+                <td>Discussing plans on what to do next</td>
                 <td><a href="Comments.php?id=2" class="btn btn-sm" role="button">Link</td>
             </tr>
             <tr>
-                <td>Test3</td>
-                <td>User3</td>
+                <td>Problems</td>
+                <td>area to discuss any problems encountered</td>
                 <td><a href="Comments.php?id=3" class="btn btn-sm" role="button">Link</td>
             </tr>
         </tbody>
