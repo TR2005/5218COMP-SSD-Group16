@@ -36,7 +36,8 @@ function MasterPage(){
                     <h3 class="text-muted"><a href="Home.php">Home</a></h3>
         			<ul class="nav nav-pills">
         				<li role="presentation"><a href="Search.php">Search</a></li>
-                        <li role="prenstation"><a href="upload.php">Upload</a></li>
+                        <li role="presentation"><a href="upload.php">Upload</a></li>
+                        <li role="presentation"><a href="ViewUploads.php">View Uploads</a></li>
         			</ul>
         		</nav>
         	</div>
@@ -47,3 +48,4 @@ function MasterPage(){
 echo MasterPage();
 
 ?>
+
