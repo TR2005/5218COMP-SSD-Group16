@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+include "Masterpage.php";
+MasterPage();
+?>
+
 <html>
 <head>
     <title>Upload File</title>
@@ -14,4 +19,5 @@
 </form>
 
 </body>
+
 </html>
